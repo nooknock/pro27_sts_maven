@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;//A Locale object represents a specific geographical, political,or cultural region.
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 //SLF4J(Simple Logging Facade for Java)는 단순한 퍼사드 패턴을 수단으로 하는 자바 로깅 API를 제공한다.
 //퍼사드는 "건물의 정면"을 의미
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Handles requests for the application home page.
@@ -27,10 +29,11 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model,HttpServletResponse response) {
+	public String home(Locale locale, Model model,HttpServletResponse response,HttpServletRequest request) throws Exception{
+		
 		
 		logger.info("Welcome home! The client locale is {}.", locale);//INFO : com.myspring.pro27.HomeController - Welcome home! The client locale is 이부분이 로케일임->ko_KR.
-		
+		logger.debug("debug 레벨 : viewName = ");
 		
 		
 		Date date = new Date();
@@ -42,5 +45,6 @@ public class HomeController {
 		
 		return "home";
 	}
+	
 	
 }
