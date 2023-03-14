@@ -32,7 +32,7 @@ public class HomeController {
 		logger.info("Welcome home! The client locale is {}.", locale);//INFO : com.myspring.pro27.HomeController - Welcome home! The client locale is 이부분이 로케일임->ko_KR.
 		
 		
-		response.setContentType("text/html;charset=utf-8");
+		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		

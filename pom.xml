@@ -108,7 +108,8 @@
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
+			<artifactId>jstl</artifactId><!-- jsp태그 라이브러리 
+			자바서버 페이지 표준 태그 라이브러리(JavaServer Pages Standard Tag Library, 약칭 JSTL)은 Java EE 기반의 웹 애플리케이션 개발 플랫폼을 위한 컴포넌트 모음이다.-->
 			<version>1.2</version>
 		</dependency>
 	
