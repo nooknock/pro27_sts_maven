@@ -37,7 +37,7 @@ public class MemberDAOImpl implements MemberDAO {
 	public int insertMember(MemberVO memberVO) throws Exception {
 		
 		int result=sqlSession.insert("mapper.member.insertMember",memberVO);
-		System.out.println(result+"�씤�꽕�듃");
+		System.out.println(result);
 		return result;
 	}
 
@@ -50,7 +50,7 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public int updateMember(MemberVO memberVO) {
 		int result=sqlSession.update("mapper.member.updateMember",memberVO);
-		System.out.println(result+"�뀑�뀑");
+		System.out.println(result);
 		return result;
 	}
 

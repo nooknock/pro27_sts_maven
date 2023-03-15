@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,17 +26,17 @@ public class MemberControllerImpl  implements MemberController {
 	/*
 	 * Marks a constructor, field, setter method, or config method as to be
 	 * autowired by Spring's dependency injection facilities.
-	 * �깮�꽦�옄, �븘�뱶, �뀑�꽣 硫붿꽌�뱶, 硫붿꽌�뱶 �꽕�젙�뿉 �쓽議댁꽦 二쇱엯�븿
+	 * 생성자, 필드, 셋터 메서드, 메서드 설정에 의존성 주입함
 	 */	
 	@Autowired 
 	private MemberService memberService;
 	
 	@Autowired
 	private MemberVO memberVO;
-
+	private static final Logger logger=LoggerFactory.getLogger(MemberControllerImpl.class);
 	/*
 	 * public void setMemberService(MemberService memberService) {
-	 * this.memberService = memberService; } @Autowired媛� ��泥�
+	 * this.memberService = memberService; } @Autowired가 대체
 	 */
 
 	@Override
@@ -42,10 +44,12 @@ public class MemberControllerImpl  implements MemberController {
 	public ModelAndView listMembers(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		String viewName = getViewName(request);
+//		System.out.println(viewName+"||||");
+		logger.debug("debug 레벨: viewName"+viewName);
 		List membersList = memberService.listMembers();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("membersList", membersList);
-		System.out.println("asd"+mav);
+//		System.out.println("asd"+mav);
 		return mav;
 	}
 	
@@ -120,13 +124,13 @@ public class MemberControllerImpl  implements MemberController {
 
 		String uri = (String) request.getAttribute("javax.servlet.include.request_uri");
 		
-		System.out.println(uri);
+		System.out.println(uri+"ㅋ");
 
 		if (uri == null || uri.trim().equals("")) {
 			uri = request.getRequestURI();
 		}
 		
-
+		System.out.println(uri+"ㅋㅋ");
 		int begin = 0;
 
 		if (!((contextPath == null) || ("".equals(contextPath)))) {
@@ -150,7 +154,7 @@ public class MemberControllerImpl  implements MemberController {
 			fileName = fileName.substring(0, fileName.lastIndexOf(".")); // /test/memberInfo
 		}
 		if (fileName.indexOf("/") != -1) {
-			fileName = fileName.substring(fileName.lastIndexOf("/"), fileName.length());
+			fileName = fileName.substring(fileName.lastIndexOf("/",1), fileName.length());
 		}
 
 		return fileName;
