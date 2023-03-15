@@ -148,15 +148,19 @@ public class MemberControllerImpl  implements MemberController {
 			end = uri.length();
 		}
 		
-
+		
 		String fileName = uri.substring(begin, end);// /test/memberInfo.do
+		System.out.println(fileName+"   확인");
 		if (fileName.indexOf(".") != -1) {
 			fileName = fileName.substring(0, fileName.lastIndexOf(".")); // /test/memberInfo
 		}
+		System.out.println(fileName+"   확인2");
+		System.out.println(fileName.lastIndexOf("/",0));
+		System.out.println(fileName.lastIndexOf("/",1));
 		if (fileName.indexOf("/") != -1) {
-			fileName = fileName.substring(fileName.lastIndexOf("/",1), fileName.length());
+			fileName = fileName.substring(fileName.lastIndexOf("/",0), fileName.length());
 		}
-
+		System.out.println(fileName);
 		return fileName;
 	}
 
