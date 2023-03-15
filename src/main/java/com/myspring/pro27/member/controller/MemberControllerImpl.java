@@ -45,6 +45,7 @@ public class MemberControllerImpl  implements MemberController {
 
 		String viewName = getViewName(request);
 //		System.out.println(viewName+"||||");
+		logger.info("info 레벨: viewName"+viewName);
 		logger.debug("debug 레벨: viewName"+viewName);
 		List membersList = memberService.listMembers();
 		ModelAndView mav = new ModelAndView(viewName);

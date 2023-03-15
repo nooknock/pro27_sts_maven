@@ -68,7 +68,7 @@ logger는 로그 레벨을 가지고 있으며, 로그의 출력 여부는 로�
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="INFO" />
+		<priority value="TRACE" />
 		<appender-ref ref="console" />
 		<appender-ref ref="dailyFileAppender"/>
 	</root>
