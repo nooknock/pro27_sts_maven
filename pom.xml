@@ -176,6 +176,30 @@
 			<version>5.3.18</version>
 		</dependency>
 
+<!-- The AspectJ runtime is a small library necessary to run Java programs enhanced by AspectJ aspects during a previous compile-time or post-compile-time (binary weaving) build step. -->
+		<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjrt</artifactId>
+    <version>1.9.6</version>
+    <scope>runtime</scope>
+</dependency>
+
+
+<!-- The AspectJ weaver applies aspects to Java classes. It can be used as a Java agent in order to apply load-time weaving (LTW) during class-loading and also contains the AspectJ runtime classes. -->
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjweaver</artifactId>
+    <version>1.9.6</version>
+    <scope>runtime</scope>
+</dependency>
+
+<!-- AspectJ tools most notably contains the AspectJ compiler (AJC). -->
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjtools</artifactId>
+    <version>1.8.9</version>
+</dependency>
+
 		<!-- 오라클 드라이버 -->
 		<dependency>
 			<groupId>jdbc.oracle</groupId>
