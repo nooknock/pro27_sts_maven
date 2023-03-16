@@ -113,28 +113,28 @@ public class MemberControllerImpl implements MemberController {
 		return mav;
 	}
 
-	// 확인요망
+	
 	@RequestMapping(value = { "/member/loginForm.do", "/member/memberForm.do" }, method = RequestMethod.GET)
 //	@RequestMapping(value = "/member/*Form.do", method =  RequestMethod.GET)
 	public ModelAndView form(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = getViewName(request);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
+		logger.info("info 레벨: viewName" + viewName);
 		return mav;
 	}
 
-	@RequestMapping(value = "/member/*Form.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView form(@RequestParam(value = "result", required = false) String result,
-			HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		String viewName = (String) request.getAttribute("viewName");
-		logger.debug("debug 레벨: viewName" + viewName);
-		ModelAndView mav = new ModelAndView(viewName);
-		mav.addObject("result", result);
-		mav.setViewName(viewName);
-
-		return mav;
-	}
+	/*
+	 * @RequestMapping(value = "/member/*Form.do", method = { RequestMethod.GET,
+	 * RequestMethod.POST }) public ModelAndView form(@RequestParam(value =
+	 * "result", required = false) String result, HttpServletRequest request,
+	 * HttpServletResponse response) throws Exception {
+	 * 
+	 * String viewName = (String) request.getAttribute("viewName");
+	 * logger.debug("debug 레벨: viewName" + viewName); ModelAndView mav = new
+	 * ModelAndView(viewName); mav.addObject("result", result);
+	 * mav.setViewName(viewName); System.out.println("ㅇㅇ"); return mav; }
+	 */
 
 	private String getViewName(HttpServletRequest request) throws Exception {
 
@@ -172,8 +172,8 @@ public class MemberControllerImpl implements MemberController {
 			fileName = fileName.substring(0, fileName.lastIndexOf(".")); // /test/memberInfo
 		}
 		System.out.println(fileName + "   확인2");
-		System.out.println(fileName.lastIndexOf("/", 0));
-		System.out.println(fileName.lastIndexOf("/", 1));
+//		System.out.println(fileName.lastIndexOf("/", 0));
+//		System.out.println(fileName.lastIndexOf("/", 1));
 		if (fileName.indexOf("/") != -1) {
 			fileName = fileName.substring(fileName.lastIndexOf("/", 1), fileName.length());
 		}
