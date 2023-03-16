@@ -12,5 +12,5 @@ public interface MemberService {
 	public int removeMember(String id) throws Exception;
 	public int modMember(MemberVO memberVO) throws Exception;
 	public int findMember(MemberVO memberVO) throws Exception;
-
+	public MemberVO login(MemberVO memberVO) throws Exception;
 }

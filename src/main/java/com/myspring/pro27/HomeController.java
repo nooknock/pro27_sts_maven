@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Handles requests for the application home page.
  */
-//@Controller
+@Controller//이름없어서 컨트롤러 2개여도 됨
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -28,22 +28,33 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	/*
+	 * @RequestMapping(value = "/", method = RequestMethod.GET) public String
+	 * home(Locale locale, Model model,HttpServletResponse
+	 * response,HttpServletRequest request) throws Exception{
+	 * 
+	 * 
+	 * logger.info("Welcome home! The client locale is {}.", locale);//INFO :
+	 * com.myspring.pro27.HomeController - Welcome home! The client locale is 이부분이
+	 * 로케일임->ko_KR. logger.debug("debug 레벨 : viewName = ");
+	 * 
+	 * 
+	 * Date date = new Date(); DateFormat dateFormat =
+	 * DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+	 * 
+	 * String formattedDate = dateFormat.format(date);//2023년 3월 14일 오전 11시 5분 56초
+	 * KST System.out.println(formattedDate); model.addAttribute("serverTime",
+	 * formattedDate );
+	 * 
+	 * return "home"; }
+	 */
+	
+	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model,HttpServletResponse response,HttpServletRequest request) throws Exception{
 		
+	
 		
-		logger.info("Welcome home! The client locale is {}.", locale);//INFO : com.myspring.pro27.HomeController - Welcome home! The client locale is 이부분이 로케일임->ko_KR.
-		logger.debug("debug 레벨 : viewName = ");
-		
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);//2023년 3월 14일 오전 11시 5분 56초 KST
-		System.out.println(formattedDate);
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
+		return "main";
 	}
 	
 	

@@ -168,37 +168,65 @@
 			<artifactId>spring-dao</artifactId>
 			<version>2.0.8</version>
 		</dependency>
-		
-		<!-- Spring JDBC provides an abstraction layer that simplifies code to use JDBC and the parsing of database-vendor specific error codes. -->
+
+		<!-- Spring JDBC provides an abstraction layer that simplifies code to 
+			use JDBC and the parsing of database-vendor specific error codes. -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>5.3.18</version>
 		</dependency>
 
-<!-- The AspectJ runtime is a small library necessary to run Java programs enhanced by AspectJ aspects during a previous compile-time or post-compile-time (binary weaving) build step. -->
+		<!-- The AspectJ runtime is a small library necessary to run Java programs 
+			enhanced by AspectJ aspects during a previous compile-time or post-compile-time 
+			(binary weaving) build step. -->
 		<dependency>
-    <groupId>org.aspectj</groupId>
-    <artifactId>aspectjrt</artifactId>
-    <version>1.9.6</version>
-    <scope>runtime</scope>
-</dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.9.6</version>
+			<scope>runtime</scope>
+		</dependency>
 
 
-<!-- The AspectJ weaver applies aspects to Java classes. It can be used as a Java agent in order to apply load-time weaving (LTW) during class-loading and also contains the AspectJ runtime classes. -->
-<dependency>
-    <groupId>org.aspectj</groupId>
-    <artifactId>aspectjweaver</artifactId>
-    <version>1.9.6</version>
-    <scope>runtime</scope>
-</dependency>
+		<!-- The AspectJ weaver applies aspects to Java classes. It can be used 
+			as a Java agent in order to apply load-time weaving (LTW) during class-loading 
+			and also contains the AspectJ runtime classes. -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.6</version>
+			<scope>runtime</scope>
+		</dependency>
 
-<!-- AspectJ tools most notably contains the AspectJ compiler (AJC). -->
-<dependency>
-    <groupId>org.aspectj</groupId>
-    <artifactId>aspectjtools</artifactId>
-    <version>1.8.9</version>
-</dependency>
+		<!-- AspectJ tools most notably contains the AspectJ compiler (AJC). -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>1.8.9</version>
+		</dependency>
+
+		<!-- Tiles Core Library, including basic implementation of the APIs. -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+		<!-- Tiles JSP support: Classes and tag libraries to use Tiles in a JSP 
+			environment. -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+		<!-- Tiles servlet support, to enable use of Tiles inside a Servlet environment. -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-servlet</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
 
 		<!-- 오라클 드라이버 -->
 		<dependency>
