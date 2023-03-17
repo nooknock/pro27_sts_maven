@@ -45,7 +45,8 @@ public class MemberControllerImpl implements MemberController {
 	@RequestMapping(value = "/member/listMembers.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView listMembers(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		String viewName = getViewName(request);
+//		String viewName = getViewName(request);
+		String viewName=(String)request.getAttribute("viewName");
 //		System.out.println(viewName+"||||");
 		logger.info("info 레벨: viewName" + viewName);
 		logger.debug("debug 레벨: viewName" + viewName);
@@ -117,7 +118,10 @@ public class MemberControllerImpl implements MemberController {
 	@RequestMapping(value = { "/member/loginForm.do", "/member/memberForm.do" }, method = RequestMethod.GET)
 //	@RequestMapping(value = "/member/*Form.do", method =  RequestMethod.GET)
 	public ModelAndView form(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = getViewName(request);
+//		String viewName = getViewName(request);
+		
+		String viewName=(String)request.getAttribute("viewName");
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
 		logger.info("info 레벨: viewName" + viewName);
@@ -136,49 +140,49 @@ public class MemberControllerImpl implements MemberController {
 	 * mav.setViewName(viewName); System.out.println("ㅇㅇ"); return mav; }
 	 */
 
-	private String getViewName(HttpServletRequest request) throws Exception {
-
-		String contextPath = request.getContextPath();
-
-		String uri = (String) request.getAttribute("javax.servlet.include.request_uri");
-
-		System.out.println(uri + "ㅋ");
-
-		if (uri == null || uri.trim().equals("")) {
-			uri = request.getRequestURI();
-		}
-
-		System.out.println(uri + "ㅋㅋ");
-		int begin = 0;
-
-		if (!((contextPath == null) || ("".equals(contextPath)))) {
-			System.out.println(contextPath);
-			begin = contextPath.length();
-
-		}
-
-		int end;
-		if (uri.indexOf(";") != -1) {
-			end = uri.indexOf(";");
-		} else if (uri.indexOf("?") != -1) {
-			end = uri.indexOf("?");
-		} else {
-			end = uri.length();
-		}
-
-		String fileName = uri.substring(begin, end);// /test/memberInfo.do
-		System.out.println(fileName + "   확인");
-		if (fileName.indexOf(".") != -1) {
-			fileName = fileName.substring(0, fileName.lastIndexOf(".")); // /test/memberInfo
-		}
-		System.out.println(fileName + "   확인2");
-//		System.out.println(fileName.lastIndexOf("/", 0));
-//		System.out.println(fileName.lastIndexOf("/", 1));
-		if (fileName.indexOf("/") != -1) {
-			fileName = fileName.substring(fileName.lastIndexOf("/", 1), fileName.length());
-		}
-		System.out.println(fileName);
-		return fileName;
-	}
+//	private String getViewName(HttpServletRequest request) throws Exception {
+//
+//		String contextPath = request.getContextPath();
+//
+//		String uri = (String) request.getAttribute("javax.servlet.include.request_uri");
+//
+//		System.out.println(uri + "ㅋ");
+//
+//		if (uri == null || uri.trim().equals("")) {
+//			uri = request.getRequestURI();
+//		}
+//
+//		System.out.println(uri + "ㅋㅋ");
+//		int begin = 0;
+//
+//		if (!((contextPath == null) || ("".equals(contextPath)))) {
+//			System.out.println(contextPath);
+//			begin = contextPath.length();
+//
+//		}
+//
+//		int end;
+//		if (uri.indexOf(";") != -1) {
+//			end = uri.indexOf(";");
+//		} else if (uri.indexOf("?") != -1) {
+//			end = uri.indexOf("?");
+//		} else {
+//			end = uri.length();
+//		}
+//
+//		String fileName = uri.substring(begin, end);// /test/memberInfo.do
+//		System.out.println(fileName + "   확인");
+//		if (fileName.indexOf(".") != -1) {
+//			fileName = fileName.substring(0, fileName.lastIndexOf(".")); // /test/memberInfo
+//		}
+//		System.out.println(fileName + "   확인2");
+////		System.out.println(fileName.lastIndexOf("/", 0));
+////		System.out.println(fileName.lastIndexOf("/", 1));
+//		if (fileName.indexOf("/") != -1) {
+//			fileName = fileName.substring(fileName.lastIndexOf("/", 1), fileName.length());
+//		}
+//		System.out.println(fileName);
+//		return fileName;
+//	}
 
 }
